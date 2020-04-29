@@ -13,22 +13,32 @@ import random
 
 
 def start_game():
+    print("\nWelcome to the number guessing game!!")
     n = random.randint(1, 10)
     guess = int(input("Enter an integer from 1 to 10: "))
     count = 1
     while n != "guess":
         if guess < n:
-            print("guess is low")
+            print("Guess is low")
             guess = int(input("Enter an integer from 1 to 10: "))
             count = count + 1
         elif guess > n:
-            print("guess is high")
+            print("Guess is high")
             guess = int(input("Enter an integer from 1 to 10: "))
             count = count + 1
         else:
             print("You guessed it. It took you {} tries.".format(count))
-            break
-        print
+
+            play_again = input("Do you want to play again? (Y/N) ")
+            play_again = play_again.upper()
+            if play_again == 'Y':
+                start_game()
+            else:
+                print("\nThanks for playing!!")
+                break
+
+
+
 
     """Psuedo-code Hints
 
