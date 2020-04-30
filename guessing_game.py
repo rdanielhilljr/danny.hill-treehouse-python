@@ -15,8 +15,13 @@ import random
 def start_game():
     print("\nWelcome to the number guessing game!!")
     n = random.randint(1, 10)
-    guess = int(input("Enter an integer from 1 to 10: "))
-    count = 1
+    while True:
+        try:
+            guess = int(input("Enter an integer from 1 to 10: "))
+            count = 1
+            break
+        except ValueError:
+            print('Oops! Looks like you did not enter a number.')
     while n != "guess":
         if guess < n:
             print("Guess is low")
